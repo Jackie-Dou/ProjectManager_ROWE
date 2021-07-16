@@ -36,7 +36,7 @@ setup:
 	php artisan db:seed
 	npm install
 
-setup not full:
+setup-not-full:
 	composer install
 	cp -n .env.example .env || true
 	php artisan key:gen --ansi
