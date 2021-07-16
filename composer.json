@@ -44,7 +44,8 @@
             "@php artisan key:generate --ansi"
         ],
         "phpcs": "phpcs",
-        "phpcbf": "phpcbf"
+        "phpcbf": "phpcbf",
+        "postinstall": "npm run prod"
     },
     "extra": {
         "laravel": {

@@ -23,7 +23,7 @@ console:
 	php artisan tinker
 
 deploy:
-	git push heroku
+	git push heroku main
 
 test:
 	php artisan test
