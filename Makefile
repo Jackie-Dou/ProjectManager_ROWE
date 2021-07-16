@@ -35,3 +35,9 @@ setup:
 	php artisan migrate
 	php artisan db:seed
 	npm install
+
+setup not full:
+	composer install
+	cp -n .env.example .env || true
+	php artisan key:gen --ansi
+	npm install
