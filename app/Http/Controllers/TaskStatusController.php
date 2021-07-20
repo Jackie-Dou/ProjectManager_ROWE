@@ -1,0 +1,68 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\TaskStatus;
+use Illuminate\Http\Request;
+
+class TaskStatusController extends Controller
+{
+    public function index()
+    {
+        $taskStatuses = TaskStatus::orderBy('id', 'asc')->paginate();
+        return view('task_statuses.index', compact('taskStatuses'));
+    }
+
+    public function create()
+    {
+        $taskStatus = new TaskStatus();
+        return view('task_statuses.create', compact('taskStatus'));
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|unique:task_statuses'
+        ], $messages = [
+            'unique' => __('validation.The status name has already been taken'),
+        ]);
+
+        $taskStatus = new TaskStatus();
+        $taskStatus->fill($data);
+        $taskStatus->save();
+        flash(__('taskStatuses.Status has been added successfully'))->success();
+        return redirect()->route('task_statuses.index');
+    }
+
+    public function edit(TaskStatus $taskStatus)
+    {
+        return view('task_statuses.edit', compact('taskStatus'));
+    }
+
+    public function update(Request $request, TaskStatus $taskStatus)
+    {
+        $data = $request->validate([
+            'name' => 'required|unique:task_statuses,name,' . $taskStatus->id
+        ], $messages = [
+            'unique' => __('validation.The status name has already been taken'),
+        ]);
+
+        $taskStatus->fill($data);
+        $taskStatus->save();
+        flash(__('taskStatuses.Status has been updated successfully'))->success();
+        return redirect()->route('task_statuses.index');
+    }
+
+    public function destroy(TaskStatus $taskStatus)
+    {
+        if ($taskStatus->tasks()->exists()) {
+            flash(__('taskStatuses.Failed to delete status'))->error();
+            return back();
+        }
+
+        $taskStatus->delete();
+        flash(__('taskStatuses.Status has been deleted successfully'))->success();
+        return redirect()->route('task_statuses.index');
+    }
+
+}
