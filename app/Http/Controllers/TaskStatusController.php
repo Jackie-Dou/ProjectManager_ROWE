@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\TaskStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TaskStatusController extends Controller
 {
     // use policies
-    public function __construct()
-    {
-        $this->authorizeResource(TaskStatus::class, 'task_status');
-    }
+//    public function __construct()
+//    {
+//        $this->authorizeResource(TaskStatus::class, 'task_status');
+//    }
 
     public function index()
     {
@@ -61,6 +62,7 @@ class TaskStatusController extends Controller
 
     public function destroy(TaskStatus $taskStatus)
     {
+        Log::info("del status{$taskStatus->name}");
         if ($taskStatus->tasks()->exists()) {
             flash(__('taskStatuses.Failed to delete status'))->error();
             return back();

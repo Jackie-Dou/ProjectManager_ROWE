@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LabelController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskStatusController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,10 @@ Route::get('/', function (): \Illuminate\Contracts\View\View {
     return view('welcome');
 })->name('welcome');
 
-
 Auth::routes();
 
 Route::resources([
     'task_statuses' => TaskStatusController::class,
+    'tasks' => TaskController::class,
+    'labels' => LabelController::class,
 ]);
