@@ -23,7 +23,7 @@ jobs:
           php-version: '8.0'
 
       - name: Setup project
-        run: make setup-not-full
+        run: make setup
 
 #      - name: Run linter
 #        run: make lint
