@@ -18,12 +18,7 @@ class TaskController extends Controller
         $this->authorizeResource(Task::class, 'task');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index(Request $request)
+    public function index(Request $request): \Illuminate\Contracts\View\View
     {
         $taskStatuses = TaskStatus::pluck('name', 'id')->all();
         $users = User::pluck('name', 'id')->all();
@@ -40,12 +35,7 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks', 'taskStatuses', 'users', 'filter'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View
     {
         $task = new Task();
         $taskStatuses = TaskStatus::pluck('name', 'id')->all();
@@ -54,13 +44,7 @@ class TaskController extends Controller
         return view('tasks.create', compact('task', 'taskStatuses', 'users', 'labels'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             'name' => 'required|unique:tasks',
@@ -84,24 +68,12 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\View\View
-     */
-    public function show(Task $task)
+    public function show(Task $task): \Illuminate\Contracts\View\View
     {
         return view('tasks.show', compact('task'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\View\View
-     */
-    public function edit(Task $task)
+    public function edit(Task $task): \Illuminate\Contracts\View\View
     {
         $taskStatuses = TaskStatus::pluck('name', 'id')->all();
         $users = User::pluck('name', 'id')->all();
@@ -109,14 +81,7 @@ class TaskController extends Controller
         return view('tasks.edit', compact('task', 'taskStatuses', 'users', 'labels'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task): \Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             'name' => 'required|unique:tasks,name,' . $task->id,
@@ -138,13 +103,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(Task $task)
+    public function destroy(Task $task): \Illuminate\Http\RedirectResponse
     {
         $task->labels()->detach();
         $task->delete();

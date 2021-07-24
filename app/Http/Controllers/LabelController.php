@@ -14,19 +14,19 @@ class LabelController extends Controller
         $this->authorizeResource(Label::class, 'label');
     }
 
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View
     {
         $labels = Label::orderBy('id', 'asc')->paginate();
         return view('labels.index', compact('labels'));
     }
 
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View
     {
         $label = new Label();
         return view('labels.create', compact('label'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             'name' => 'required|unique:labels',
@@ -45,12 +45,12 @@ class LabelController extends Controller
         return redirect()->route('labels.index');
     }
 
-    public function edit(Label $label)
+    public function edit(Label $label): \Illuminate\Contracts\View\View
     {
         return view('labels.edit', compact('label'));
     }
 
-    public function update(Request $request, Label $label)
+    public function update(Request $request, Label $label): \Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             'name' => 'required|unique:labels,name,' . $label->id,
@@ -65,7 +65,7 @@ class LabelController extends Controller
         return redirect()->route('labels.index');
     }
 
-    public function destroy(Label $label)
+    public function destroy(Label $label): \Illuminate\Http\RedirectResponse
     {
         Log::info($label->name);
 
