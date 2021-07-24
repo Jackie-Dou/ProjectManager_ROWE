@@ -14,19 +14,19 @@ class TaskStatusController extends Controller
         $this->authorizeResource(TaskStatus::class, 'task_status');
     }
 
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View
     {
         $taskStatuses = TaskStatus::orderBy('id', 'asc')->paginate();
         return view('task_statuses.index', compact('taskStatuses'));
     }
 
-    public function create()
+    public function create(): \Illuminate\Contracts\View\View
     {
         $taskStatus = new TaskStatus();
         return view('task_statuses.create', compact('taskStatus'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             'name' => 'required|unique:task_statuses'
@@ -41,12 +41,12 @@ class TaskStatusController extends Controller
         return redirect()->route('task_statuses.index');
     }
 
-    public function edit(TaskStatus $taskStatus)
+    public function edit(TaskStatus $taskStatus): \Illuminate\Contracts\View\View
     {
         return view('task_statuses.edit', compact('taskStatus'));
     }
 
-    public function update(Request $request, TaskStatus $taskStatus)
+    public function update(Request $request, TaskStatus $taskStatus): \Illuminate\Http\RedirectResponse
     {
         $data = $request->validate([
             'name' => 'required|unique:task_statuses,name,' . $taskStatus->id
@@ -60,7 +60,7 @@ class TaskStatusController extends Controller
         return redirect()->route('task_statuses.index');
     }
 
-    public function destroy(TaskStatus $taskStatus)
+    public function destroy(TaskStatus $taskStatus): \Illuminate\Http\RedirectResponse
     {
         Log::info("del status{$taskStatus->name}");
         if ($taskStatus->tasks()->exists()) {
