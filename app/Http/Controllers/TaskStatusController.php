@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Log;
 class TaskStatusController extends Controller
 {
     // use policies
-//    public function __construct()
-//    {
-//        $this->authorizeResource(TaskStatus::class, 'task_status');
-//    }
+    public function __construct()
+    {
+        $this->authorizeResource(TaskStatus::class, 'task_status');
+    }
 
     public function index()
     {
@@ -72,5 +72,4 @@ class TaskStatusController extends Controller
         flash(__('taskStatuses.Status has been deleted successfully'))->success();
         return redirect()->route('task_statuses.index');
     }
-
 }
