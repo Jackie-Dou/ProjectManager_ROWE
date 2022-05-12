@@ -1,3 +1,6 @@
+in-db:
+	psql -Uwanuser -dtaskmanager
+
 start:
 	php artisan serve --host 127.0.0.1
 
