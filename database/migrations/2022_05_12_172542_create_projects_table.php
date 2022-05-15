@@ -17,8 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->bigInteger('created_by_id');
-            $table->foreign('created_by_id')->references('id')->on('users');
+            $table->boolean('isFavourite');
             $table->timestamps();
         });
     }

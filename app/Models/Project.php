@@ -9,12 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'status_id', 'created_by_id'];
-
-    public function creator(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo('App\Models\User', 'created_by_id');
-    }
+    protected $fillable = ['name', 'description', 'isFavourite'];
 
     public function tasks(): \Illuminate\Database\Eloquent\Relations\HasOneOrMany
     {

@@ -14,7 +14,7 @@ return [
     */
 
     'Task manager' => 'Менеджер задач',
-    'Hello from Hexlet!' => 'Привет от Хекслета!',
-    'Practical courses in programming' => 'Практические курсы по программированию',
+    'Hello from R.O.W.E.!' => 'Привет от R.O.W.E!',
+    'Read Often Write Everything' => 'Read Often Write Everything',
     'Learn more' => 'Узнать больше'
 ];
