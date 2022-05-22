@@ -18,12 +18,12 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->bigInteger('project_id');
-            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');;
             $table->bigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('task_statuses');
             $table->bigInteger('created_by_id');
             $table->foreign('created_by_id')->references('id')->on('users');
-            $table->dateTime('deadline');
+            $table->date('deadline')->nullable();
             $table->timestamps();
         });
     }

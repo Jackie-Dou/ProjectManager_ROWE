@@ -30,6 +30,14 @@
                 <div class="form-row">
                     <div class="col-6">
                         <div class="form-group">
+                            {{Form::label('deadline', __('tasks.Deadline'))}}
+                            {{Form::input('date', 'deadline', null, ['class' => 'form-control'])}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
                             {{Form::label('status_id', __('taskStatuses.Status'))}}
                             {{Form::select('status_id', $taskStatuses, null, ['placeholder' => '----------', 'class' => 'form-control'])}}
                             @if ($errors->has('status_id'))
@@ -43,8 +51,13 @@
                 <div class="form-row">
                     <div class="col-6">
                         <div class="form-group">
-                            {{Form::label('assigned_to_id', __('tasks.Executor'))}}
-                            {{Form::select('assigned_to_id', $users, null, ['placeholder' => '----------', 'class' => 'form-control'])}}
+                            {{Form::label('project_id', __('projects.Project'))}}
+                            {{Form::select('project_id', $projects, '1', ['placeholder' => '----------', 'class' => 'form-control'])}}
+                            @if ($errors->has('project_id'))
+                                @error('project_id')
+                                <div class="invalid-feedback d-block">{{ $message }}</div>
+                                @enderror
+                            @endif
                         </div>
                     </div>
                 </div>

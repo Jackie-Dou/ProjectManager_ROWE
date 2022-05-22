@@ -12,18 +12,6 @@
         @endif
         <div class="row">
             <div class="col">
-                <div class="d-flex">
-                    <div>
-                        {{Form::open(['url' => route('projects.index'), 'method' => 'GET', 'class' => 'form-inline'])}}
-                        {{--фильтр по избранному и по дате--}}
-                        {{Form::submit(__('projects.Apply'), ['class' => 'btn btn-outline-primary mr-2 my-2'])}}
-                        {{Form::close()}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
                 <div class="table mt-2">
                     <table class="table">
                         <tr>

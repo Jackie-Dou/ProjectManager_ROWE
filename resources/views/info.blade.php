@@ -4,11 +4,9 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-4">{{ __('welcome.Hello from R.O.W.E.!') }}</h1>
-            <p class="lead">{{ __('welcome.Read Often Write Everything') }}</p>
+            <p class="lead">{{ __('info.Common information') }}</p>
             <hr class="my-4">
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="{{ route('info') }}" role="button">{{ __('welcome.Learn more') }}</a>
-            </p>
+            Тут общая информация о том, зачем и почему
         </div>
     </div>
 @endsection

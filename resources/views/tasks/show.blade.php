@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -7,6 +6,11 @@
             {{ __('tasks.View a task') . ": ". $task->name }}
             <a href="{{ route('tasks.edit', ['task' => $task->id]) }}">⚙</a>
         </h1>
+        <div class="row">
+            <div class="col">
+                <p>{{ __('tasks.Project') . ": ". $task->project->name }}</p>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <p>{{ __('tasks.Task name') . ": ". $task->name }}</p>

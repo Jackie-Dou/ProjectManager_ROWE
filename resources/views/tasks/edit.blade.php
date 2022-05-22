@@ -21,11 +21,36 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            {{Form::label('project_id', __('projects.Project'))}}
+                            {{Form::select('project_id', $projects, null, ['placeholder' => '----------', 'class' => 'form-control'])}}
+                            @if ($errors->any())
+                                <div class="invalid-feedback d-block">
+                                    @foreach ($errors->all() as $error)
+                                        {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-row">
                     <div class="col-6">
                         <div class="form-group">
                             {{Form::label('description', __('tasks.Description'))}}
                             {{Form::textarea('description', null, ['class' => 'form-control', 'cols' => '50', 'rows' => '10'])}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            {{Form::label('deadline', __('tasks.Deadline'))}}
+                            {{Form::input('date', 'deadline', null, ['class' => 'form-control'])}}
                         </div>
                     </div>
                 </div>
@@ -41,14 +66,6 @@
                                     @endforeach
                                 </div>
                             @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-6">
-                        <div class="form-group">
-                            {{Form::label('assigned_to_id', __('tasks.Executor'))}}
-                            {{Form::select('assigned_to_id', $users, null, ['placeholder' => '----------', 'class' => 'form-control'])}}
                         </div>
                     </div>
                 </div>

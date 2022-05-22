@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -23,7 +22,7 @@
                     <p>{{ __('tasks.Tasks') . ": " }}</p>
                     <ul>
                         @foreach ($project->tasks as $task)
-                            <li>{{ $task->name }}</li>
+                            <li> <a href="{{ route('tasks.show', ['task' => $task->id]) }}">{{ $task->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>

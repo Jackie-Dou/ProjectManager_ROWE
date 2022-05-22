@@ -22,6 +22,15 @@ Route::get('/', function (): \Illuminate\Contracts\View\View {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/info', function (): \Illuminate\Contracts\View\View {
+    return view('info');
+})->name('info');
+
+Route::get(
+    '/calendar',
+    [TaskController::class, 'calendar']
+)->name('tasks.calendar');
+
 Auth::routes();
 
 Route::resources([

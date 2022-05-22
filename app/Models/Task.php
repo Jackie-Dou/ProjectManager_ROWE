@@ -9,7 +9,7 @@ class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'project', 'description', 'status_id', 'created_by_id'];
+    protected $fillable = ['name', 'project_id', 'description', 'status_id', 'created_by_id', 'deadline'];
 
     public function creator(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
