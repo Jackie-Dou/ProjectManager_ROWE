@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Sample;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,19 @@ class TaskController extends Controller
         $labels = Label::pluck('name', 'id')->all();
         $projects = Project::pluck('name', 'id')->all();
         return view('tasks.create', compact('task', 'taskStatuses', 'users', 'labels', 'projects'));
+    }
+
+    public function sample(Request $request): \Illuminate\Contracts\View\View
+    {
+        //var_dump($request->sample_id);
+        $sample = Sample::find($request->sample_id);
+        //var_dump($sample->status);
+        $task = new Task();
+        $taskStatuses = TaskStatus::pluck('name', 'id')->all();
+        $users = User::pluck('name', 'id')->all();
+        $labels = Label::pluck('name', 'id')->all();
+        $projects = Project::pluck('name', 'id')->all();
+        return view('tasks.sample', compact('task', 'sample', 'taskStatuses', 'users', 'labels', 'projects'));
     }
 
     public function calendar(): \Illuminate\Contracts\View\View

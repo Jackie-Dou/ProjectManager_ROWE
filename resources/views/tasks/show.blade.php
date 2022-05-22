@@ -13,6 +13,11 @@
         </div>
         <div class="row">
             <div class="col">
+                <p>{{ __('tasks.Deadline') . ": ". $task->deadline }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <p>{{ __('tasks.Task name') . ": ". $task->name }}</p>
             </div>
         </div>
