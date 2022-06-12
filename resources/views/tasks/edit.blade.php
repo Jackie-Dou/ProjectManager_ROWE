@@ -25,7 +25,7 @@
                 <div class="form-row">
                     <div class="col-6">
                         <div class="form-group">
-                            {{Form::label('project_id', __('projects.Project'))}}
+                            {{Form::label('project_id', __('tasks.Project'))}}
                             {{Form::select('project_id', $projects, null, ['placeholder' => '----------', 'class' => 'form-control'])}}
                             @if ($errors->any())
                                 <div class="invalid-feedback d-block">

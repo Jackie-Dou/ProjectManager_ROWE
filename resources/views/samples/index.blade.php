@@ -6,7 +6,7 @@
         @if(Auth::check())
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('samples.create') }}" class="btn btn-primary mb-2">{{ __('samples.Create samples') }}</a>
+                    <a href="{{ route('samples.create') }}" class="btn btn-primary mb-2">{{ __('samples.Create') }}</a>
                 </div>
             </div>
         @endif

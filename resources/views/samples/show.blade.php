@@ -41,7 +41,7 @@
         @if(Auth::check())
             <td>
                 {{Form::open(['url' => route('tasks.sample', ['sample_id' => $sample->id]), 'method' => 'POST', 'class' => 'form-inline'])}}
-                {{Form::submit(__('sample.Use'), ['class' => 'btn btn-outline-primary mr-2 my-2'])}}
+                {{Form::submit(__('samples.Use'), ['class' => 'btn btn-outline-primary mr-2 my-2'])}}
                 {{Form::close()}}
             </td>
         @endif

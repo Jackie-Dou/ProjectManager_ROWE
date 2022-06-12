@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Label;
 use App\Models\Project;
 use App\Models\Sample;

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'Samples' => 'Шаблоны',
+    'Create' => 'Создать',
+    'Create task' => 'Создать задачу',
+    'Edit' => 'Изменить',
+    'Delete' => 'Удалить',
+    'Update' => 'Обновить',
+    'Show calendar' => 'Показать календарь',
+    'Date of creation' => 'Дата создания',
+    'Actions' => 'Действия',
+    'Apply' => 'Применить',
+    'Task name' => 'Имя',
+    'Author' => 'Автор',
+    'Project' => 'Проект',
+    'Deadline' => 'Срок',
+    'Description' => 'Описание',
+    'Executor' => 'Исполнитель',
+    'Edit sample' => 'Изменение шаблона',
+    'View a sample' => 'Просмотр шаблона',
+    'Sample has been added successfully' => 'Шаблон успешно создан',
+    'Sample has been updated successfully' => 'Шаблон успешно изменен',
+    'Sample has been deleted successfully' => 'Шаблон успешно удален',
+    'Are you sure?' => 'Вы уверены?',
+    'Use' => 'Использовать для задачи',
+];

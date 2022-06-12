@@ -108,7 +108,6 @@ class ProjectController extends Controller
         $project->save();
 
         $tasks = collect($request->input('tasks'))->filter(fn($task) => isset($task));
-        //вот тут вычислить разницу массивов
         $project->tasks()->delete();
         $project->tasks()->saveMany($tasks);
 
