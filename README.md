@@ -1,7 +1,6 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/Jackie-Dou/php-project-lvl4/workflows/hexlet-check/badge.svg)](https://github.com/Jackie-Dou/php-project-lvl4/actions)
-[![Github Actions Status](https://github.com/Jackie-Dou/php-project-lvl4/workflows/CI/badge.svg)](https://github.com/Jackie-Dou/php-project-lvl4/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d6f24814aa7e0cdf1809/maintainability)](https://codeclimate.com/github/Jackie-Dou/php-project-lvl4/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/d6f24814aa7e0cdf1809/test_coverage)](https://codeclimate.com/github/Jackie-Dou/php-project-lvl4/test_coverage)
-
-Heroku app: https://hexlet-4.herokuapp.com/
+Объектом разработки является комплексная система, предназначенная для управления задачи и проектами.
+Целью работы является предоставление пользователю инструментов для управления временем и формирования списков задач в соответствии с конкретными потребностями пользователя.
+Основной функцией разработанного программного средства является создание, редактирование и удаление пользовательских проектов и задач. 
+В качестве дополнительных возможностей предоставляется функционал создания пользовательских меток, статусов и шаблонов для кастомизации и детализации задач. 
+Система сортировки, включающая в себя функцию формирования пользовательского календаря, позволяет обеспечить актуальность информации для пользователя и предлагает настройку отображения списка задач в зависимости от запроса.
+Имеется разделение пользовательских ролей на зарегистрированного пользователя и незарегистрированного пользователя. Роль пользователя определяет, какие разделы системы будут ему доступны. Безопасность пользовательских данных обеспечивается с помощью ограничения прав доступа к пользовательским данным с использованием системы пользовательских сессий, основанной на токенах.
